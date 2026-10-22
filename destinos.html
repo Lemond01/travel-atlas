@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Travel Atlas: una guía visual de destinos para descubrir lugares y planear tu siguiente viaje.">
+  <title>Destinos | Travel Atlas</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Estilos propios -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body class="has-hero">
+
+  <!-- ============ NAVBAR + OFFCANVAS ============ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-atlas" aria-label="Navegación principal">
+        <a class="navbar-brand" href="index.html"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 7l8-3 10 3 8-3v21l-8 3-10-3-8 3z" fill="#0f5e6e"/><path d="M11 4v21M21 7v21" stroke="#fff" stroke-width="2"/><circle cx="16" cy="14" r="3" fill="#c2502e"/></svg>Travel Atlas</a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu" aria-controls="menu" aria-label="Abrir menú">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="menu" aria-labelledby="menu-title">
+          <div class="offcanvas-header">
+            <h2 class="offcanvas-title h5" id="menu-title">Travel Atlas</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+          </div>
+          <div class="offcanvas-body align-items-lg-center">
+            <ul class="navbar-nav mx-lg-auto gap-lg-1">
+              <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="destinos.html">Destinos</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html#seleccion">Para empezar</a></li>
+              <li class="nav-item"><a class="nav-link" href="#consejos">Consejos</a></li>
+            </ul>
+            <a class="btn btn-primary mt-4 mt-lg-0" href="#consejos">Planear viaje</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ PORTADA CORTA ============ -->
+    <section class="page-hero">
+      <img src="img/destinos/torres-del-paine.jpg" class="page-hero-img" alt="">
+      <div class="container">
+        <nav aria-label="Ruta de navegación">
+          <ol class="breadcrumb mb-3">
+            <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Destinos</li>
+          </ol>
+        </nav>
+        <h1 class="page-title mb-3">Ocho destinos, cuatro estilos de viaje.</h1>
+        <p class="lead mb-0">Filtra por playa, naturaleza, cultura o aventura, revisa la mejor época y guarda tus favoritos.</p>
+      </div>
+    </section>
+
+    <!-- ============ FILTROS + DESTINOS ============ -->
+    <section class="container pb-5" aria-labelledby="titulo-destinos">
+      <h2 id="titulo-destinos" class="visually-hidden">Lista de destinos</h2>
+
+      <div class="filter-bar d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-5">
+        <div class="filters" role="group" aria-label="Filtrar por estilo de viaje">
+          <button class="chip active" type="button" data-filter="todos" aria-pressed="true">Todos <span class="count">8</span></button>
+          <button class="chip" type="button" data-filter="playa" aria-pressed="false">Playa <span class="count">2</span></button>
+          <button class="chip" type="button" data-filter="naturaleza" aria-pressed="false">Naturaleza <span class="count">2</span></button>
+          <button class="chip" type="button" data-filter="cultura" aria-pressed="false">Cultura <span class="count">2</span></button>
+          <button class="chip" type="button" data-filter="aventura" aria-pressed="false">Aventura <span class="count">2</span></button>
+        </div>
+        <p class="filter-count small text-secondary mb-0 flex-shrink-0" aria-live="polite">Mostrando <strong class="text-body" id="contador">8</strong> destinos</p>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 gy-5" id="gridDestinos">
+        <div class="col" id="santorini" data-category="playa">
+          <article class="card card-destino h-100" tabindex="0">
+            <div class="card-media">
+              <img src="img/destinos/sm/santorini.jpg" class="card-img-top" alt="Casas blancas y cúpulas azules de Oia frente al mar Egeo" loading="lazy">
+              <span class="badge">Playa</span>
+              <button class="btn btn-save btn-icon" type="button" aria-pressed="false" aria-label="Guardar Santorini" data-destino="Santorini">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-9-9a4.8 4.8 0 0 1 9-3 4.8 4.8 0 0 1 9 3c-2 4.6-9 9-9 9z"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <p class="small text-secondary mb-2">Grecia · Europa</p>
+              <h3 class="card-title">Santorini</h3>
+              <p class="card-text text-secondary">Cúpulas azules, casas blancas y atardeceres dorados sobre el mar Egeo.</p>
+              <p class="card-season"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> Mejor época: <strong>may–oct</strong></p>
+            </div>
+          </article>
+        </div>
+        <div class="col" id="tulum" data-category="playa">
+          <article class="card card-destino h-100" tabindex="0">
+            <div class="card-media">
+              <img src="img/destinos/sm/tulum.jpg" class="card-img-top" alt="Playa de arena blanca con palmeras, palapas y camastros frente al mar turquesa" loading="lazy">
+              <span class="badge">Playa</span>
+              <button class="btn btn-save btn-icon" type="button" aria-pressed="false" aria-label="Guardar Tulum" data-destino="Tulum">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-9-9a4.8 4.8 0 0 1 9-3 4.8 4.8 0 0 1 9 3c-2 4.6-9 9-9 9z"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <p class="small text-secondary mb-2">México · América</p>
+              <h3 class="card-title">Tulum</h3>
+              <p class="card-text text-secondary">Arena blanca, palmeras y agua turquesa junto a ruinas mayas.</p>
+              <p class="card-season"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> Mejor época: <strong>nov–abr</strong></p>
+            </div>
+          </article>
+        </div>
+        <div class="col" id="alpes-suizos" data-category="naturaleza">
+          <article class="card card-destino h-100" tabindex="0">
+            <div class="card-media">
+              <img src="img/destinos/sm/alpes-suizos.jpg" class="card-img-top" alt="El Matterhorn nevado detrás de chalets de madera en Zermatt" loading="lazy">
+              <span class="badge">Naturaleza</span>
+              <button class="btn btn-save btn-icon" type="button" aria-pressed="false" aria-label="Guardar Alpes suizos" data-destino="Alpes suizos">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-9-9a4.8 4.8 0 0 1 9-3 4.8 4.8 0 0 1 9 3c-2 4.6-9 9-9 9z"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <p class="small text-secondary mb-2">Suiza · Europa</p>
+              <h3 class="card-title">Alpes suizos</h3>
+              <p class="card-text text-secondary">Picos nevados, pueblos de madera y trenes panorámicos.</p>
+              <p class="card-season"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> Mejor época: <strong>jun–sep</strong></p>
+            </div>
+          </article>
+        </div>
+        <div class="col" id="islandia" data-category="naturaleza">
+          <article class="card card-destino h-100" tabindex="0">
+            <div class="card-media">
+              <img src="img/destinos/sm/islandia.jpg" class="card-img-top" alt="Camino entre campos de lupinos morados hacia una pequeña iglesia en Islandia" loading="lazy">
+              <span class="badge">Naturaleza</span>
+              <button class="btn btn-save btn-icon" type="button" aria-pressed="false" aria-label="Guardar Vík" data-destino="Vík">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-9-9a4.8 4.8 0 0 1 9-3 4.8 4.8 0 0 1 9 3c-2 4.6-9 9-9 9z"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <p class="small text-secondary mb-2">Islandia · Europa</p>
+              <h3 class="card-title">Vík</h3>
+              <p class="card-text text-secondary">Campos de lupinos, iglesias solitarias y playas de arena negra.</p>
+              <p class="card-season"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> Mejor época: <strong>jun–ago</strong></p>
+            </div>
+          </article>
+        </div>
+        <div class="col" id="kioto" data-category="cultura">
+          <article class="card card-destino h-100" tabindex="0">
+            <div class="card-media">
+              <img src="img/destinos/sm/kioto.jpg" class="card-img-top" alt="Calle tradicional de Kioto cubierta de nieve al anochecer, con faroles encendidos" loading="lazy">
+              <span class="badge">Cultura</span>
+              <button class="btn btn-save btn-icon" type="button" aria-pressed="false" aria-label="Guardar Kioto" data-destino="Kioto">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-9-9a4.8 4.8 0 0 1 9-3 4.8 4.8 0 0 1 9 3c-2 4.6-9 9-9 9z"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <p class="small text-secondary mb-2">Japón · Asia</p>
+              <h3 class="card-title">Kioto</h3>
+              <p class="card-text text-secondary">Calles tradicionales, faroles y templos que guardan siglos de historia.</p>
+              <p class="card-season"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> Mejor época: <strong>mar–may</strong></p>
+            </div>
+          </article>
+        </div>
+        <div class="col" id="guanajuato" data-category="cultura">
+          <article class="card card-destino h-100" tabindex="0">
+            <div class="card-media">
+              <img src="img/destinos/sm/guanajuato.jpg" class="card-img-top" alt="Basílica amarilla de Guanajuato y terrazas con sombrillas rojas" loading="lazy">
+              <span class="badge">Cultura</span>
+              <button class="btn btn-save btn-icon" type="button" aria-pressed="false" aria-label="Guardar Guanajuato" data-destino="Guanajuato">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-9-9a4.8 4.8 0 0 1 9-3 4.8 4.8 0 0 1 9 3c-2 4.6-9 9-9 9z"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <p class="small text-secondary mb-2">México · América</p>
+              <h3 class="card-title">Guanajuato</h3>
+              <p class="card-text text-secondary">Callejones de colores, plazas con terrazas y mucha historia.</p>
+              <p class="card-season"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> Mejor época: <strong>oct–mar</strong></p>
+            </div>
+          </article>
+        </div>
+        <div class="col" id="machu-picchu" data-category="aventura">
+          <article class="card card-destino h-100" tabindex="0">
+            <div class="card-media">
+              <img src="img/destinos/sm/machu-picchu.jpg" class="card-img-top" alt="Ciudadela de Machu Picchu y el Huayna Picchu entre nubes" loading="lazy">
+              <span class="badge">Aventura</span>
+              <button class="btn btn-save btn-icon" type="button" aria-pressed="false" aria-label="Guardar Machu Picchu" data-destino="Machu Picchu">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-9-9a4.8 4.8 0 0 1 9-3 4.8 4.8 0 0 1 9 3c-2 4.6-9 9-9 9z"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <p class="small text-secondary mb-2">Perú · América</p>
+              <h3 class="card-title">Machu Picchu</h3>
+              <p class="card-text text-secondary">La ciudadela inca suspendida entre montañas y nubes.</p>
+              <p class="card-season"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> Mejor época: <strong>may–sep</strong></p>
+            </div>
+          </article>
+        </div>
+        <div class="col" id="torres-del-paine" data-category="aventura">
+          <article class="card card-destino h-100" tabindex="0">
+            <div class="card-media">
+              <img src="img/destinos/sm/torres-del-paine.jpg" class="card-img-top" alt="Picos nevados de Torres del Paine sobre un lago turquesa" loading="lazy">
+              <span class="badge">Aventura</span>
+              <button class="btn btn-save btn-icon" type="button" aria-pressed="false" aria-label="Guardar Torres del Paine" data-destino="Torres del Paine">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-9-9a4.8 4.8 0 0 1 9-3 4.8 4.8 0 0 1 9 3c-2 4.6-9 9-9 9z"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <p class="small text-secondary mb-2">Chile · América</p>
+              <h3 class="card-title">Torres del Paine</h3>
+              <p class="card-text text-secondary">Picos de granito, glaciares y lagos turquesa en la Patagonia.</p>
+              <p class="card-season"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> Mejor época: <strong>nov–mar</strong></p>
+            </div>
+          </article>
+        </div>
+        <div class="col" data-category="sugerencia">
+          <div class="card-suggest h-100">
+            <div>
+              <h3 class="mb-3">¿Falta tu lugar favorito?</h3>
+              <p class="mb-0">Estamos ampliando el atlas con recomendaciones de viajeros. Mientras tanto, revisa nuestros consejos.</p>
+            </div>
+            <a class="btn btn-light align-self-start" href="#consejos">Ver consejos de viaje
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ACCORDION ============ -->
+    <section id="consejos" class="container section pb-0" aria-labelledby="titulo-consejos">
+      <div class="row gy-4 gx-lg-5">
+        <div class="col-12">
+          <h2 id="titulo-consejos" class="section-title mb-3">Consejos de viaje</h2>
+          <p class="text-secondary mb-0">Recomendaciones y preguntas frecuentes para planear sin estrés.</p>
+        </div>
+        <div class="col-lg-5">
+          <img src="img/destinos/sm/kioto.jpg" class="tips-img d-none d-lg-block mb-4" alt="Calle de Kioto con nieve y faroles encendidos" loading="lazy">
+          <a class="btn btn-outline-dark" href="index.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+            Volver al inicio
+          </a>
+        </div>
+        <div class="col-lg-7">
+          <div class="accordion accordion-atlas" id="accordionConsejos">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-epoca" aria-expanded="true" aria-controls="faq-epoca">¿Cuál es la mejor época para viajar?</button>
+              </h3>
+              <div id="faq-epoca" class="accordion-collapse collapse show" data-bs-parent="#accordionConsejos">
+                <div class="accordion-body text-secondary">Depende del destino: cada tarjeta indica su mejor época. Como regla general, la <strong>temporada media</strong> (justo antes o después de la alta) combina buen clima, menos gente y mejores precios.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-transporte" aria-expanded="false" aria-controls="faq-transporte">¿Cómo me muevo dentro de cada destino?</button>
+              </h3>
+              <div id="faq-transporte" class="accordion-collapse collapse" data-bs-parent="#accordionConsejos">
+                <div class="accordion-body text-secondary">En Europa y Japón el <strong>tren</strong> es rápido y puntual; conviene revisar pases como el Swiss Travel Pass o el JR Pass. En destinos de naturaleza, renta un auto o contrata tours locales con guías certificados.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-presupuesto" aria-expanded="false" aria-controls="faq-presupuesto">¿Cuánto debo presupuestar?</button>
+              </h3>
+              <div id="faq-presupuesto" class="accordion-collapse collapse" data-bs-parent="#accordionConsejos">
+                <div class="accordion-body text-secondary">Calcula vuelo, hospedaje, comida, transporte local y actividades, y agrega un <strong>15 % extra</strong> para imprevistos. Reservar con 2 o 3 meses de anticipación suele dar mejores tarifas.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-documentos" aria-expanded="false" aria-controls="faq-documentos">¿Qué documentos y seguros necesito?</button>
+              </h3>
+              <div id="faq-documentos" class="accordion-collapse collapse" data-bs-parent="#accordionConsejos">
+                <div class="accordion-body text-secondary">Revisa que tu pasaporte tenga al menos <strong>6 meses de vigencia</strong>, consulta si el país pide visa y contrata un seguro de viaje con cobertura médica, sobre todo para actividades de aventura.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-local" aria-expanded="false" aria-controls="faq-local">Recomendaciones locales</button>
+              </h3>
+              <div id="faq-local" class="accordion-collapse collapse" data-bs-parent="#accordionConsejos">
+                <div class="accordion-body text-secondary">Aprende saludos básicos en el idioma local, respeta los códigos de vestimenta en templos y sitios sagrados, y prefiere negocios locales: tu viaje también ayuda a la comunidad.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row gy-4 align-items-end">
+        <div class="col-lg-6">
+          <a class="footer-brand mb-3" href="index.html"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 7l8-3 10 3 8-3v21l-8 3-10-3-8 3z" fill="#0f5e6e"/><path d="M11 4v21M21 7v21" stroke="#fff" stroke-width="2"/><circle cx="16" cy="14" r="3" fill="#c2502e"/></svg>Travel Atlas</a>
+          <h2 class="footer-title">Un destino nuevo cada semana.</h2>
+        </div>
+        <div class="col-lg-5 offset-lg-1">
+          <form class="newsletter d-flex gap-2" id="formNewsletter">
+            <label for="correo" class="visually-hidden">Correo electrónico</label>
+            <input type="email" class="form-control" id="correo" name="correo" placeholder="tu@correo.com" autocomplete="email" required>
+            <button class="btn btn-primary flex-shrink-0" type="submit">Suscribirme</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom small">
+        © 2026 Travel Atlas · Proyecto académico EBAC — Módulo 11
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ TOAST ============ -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="toastGuardado" class="toast align-items-center" data-bs-theme="dark" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body"></div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

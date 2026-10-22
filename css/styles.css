@@ -1,0 +1,1119 @@
+/* ==========================================================
+   TRAVEL ATLAS — estilos propios
+   ========================================================== */
+
+/* ---------- 1. Variables ---------- */
+:root {
+  --atlas-ink: #15191c;
+  --atlas-paper: #ffffff;
+  --atlas-surface: #f2f4f5;
+  --atlas-line: #e3e7e9;
+  --atlas-muted: #59646c;
+  --atlas-petrol: #0f5e6e;
+  --atlas-petrol-700: #0a4652;
+  --atlas-terra: #c2502e;
+  --atlas-radius: 24px;
+  --atlas-radius-sm: 14px;
+  --atlas-pill: 999px;
+
+  /* Vidrio */
+  --atlas-glass-light: rgba(255, 255, 255, 0.72);
+  --atlas-glass-dark: rgba(24, 28, 32, 0.38);
+  --atlas-glass-border: rgba(255, 255, 255, 0.28);
+  --atlas-blur: saturate(180%) blur(20px);
+  --atlas-shadow: 0 18px 40px -18px rgba(21, 25, 28, 0.35);
+  --atlas-ease: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* Bootstrap */
+  --bs-body-font-family: "Schibsted Grotesk", system-ui, sans-serif;
+  --bs-body-bg: var(--atlas-paper);
+  --bs-body-color: var(--atlas-ink);
+  --bs-body-color-rgb: 21, 25, 28;
+  --bs-secondary-color: var(--atlas-muted);
+  --bs-secondary-rgb: 89, 100, 108;
+  --bs-border-color: var(--atlas-line);
+  --bs-border-radius: var(--atlas-radius-sm);
+  --bs-border-radius-lg: var(--atlas-radius);
+  --bs-primary: var(--atlas-petrol);
+  --bs-primary-rgb: 15, 94, 110;
+  --bs-link-color: var(--atlas-petrol);
+  --bs-link-color-rgb: 15, 94, 110;
+  --bs-link-hover-color: var(--atlas-petrol-700);
+  --bs-link-hover-color-rgb: 10, 70, 82;
+  --bs-focus-ring-color: rgba(15, 94, 110, 0.35);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (min-width: 1800px) {
+  .container {
+    max-width: 1600px;
+  }
+}
+
+/* ---------- 2. Tipografía ---------- */
+h1, h2, h3 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.section-title {
+  font-size: clamp(2.1rem, 1.4rem + 2.6vw, 3.75rem);
+}
+
+.lead {
+  font-size: 1.15rem;
+  color: var(--atlas-muted);
+}
+
+.intro-lead {
+  max-width: 38rem;
+}
+
+.section {
+  padding-block: clamp(4rem, 8vw, 6.5rem);
+}
+
+/* ---------- 3. Botones ---------- */
+.btn {
+  --bs-btn-padding-x: 1.25rem;
+  --bs-btn-padding-y: 0.7rem;
+  --bs-btn-font-weight: 700;
+  --bs-btn-border-radius: var(--atlas-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s var(--atlas-ease), color 0.3s var(--atlas-ease),
+    border-color 0.3s var(--atlas-ease), transform 0.3s var(--atlas-ease);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-lg {
+  --bs-btn-padding-x: 1.6rem;
+  --bs-btn-padding-y: 0.9rem;
+  --bs-btn-font-size: 1rem;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--atlas-petrol);
+  --bs-btn-border-color: var(--atlas-petrol);
+  --bs-btn-hover-bg: var(--atlas-petrol-700);
+  --bs-btn-hover-border-color: var(--atlas-petrol-700);
+  --bs-btn-active-bg: var(--atlas-petrol-700);
+  --bs-btn-active-border-color: var(--atlas-petrol-700);
+}
+
+.btn-light {
+  --bs-btn-color: var(--atlas-ink);
+  --bs-btn-bg: #fff;
+  --bs-btn-border-color: #fff;
+  --bs-btn-hover-color: var(--atlas-ink);
+  --bs-btn-hover-bg: var(--atlas-surface);
+  --bs-btn-hover-border-color: var(--atlas-surface);
+  --bs-btn-active-color: var(--atlas-ink);
+  --bs-btn-active-bg: var(--atlas-surface);
+}
+
+.btn-outline-dark {
+  --bs-btn-color: var(--atlas-ink);
+  --bs-btn-border-color: var(--atlas-ink);
+  --bs-btn-hover-bg: var(--atlas-ink);
+  --bs-btn-hover-border-color: var(--atlas-ink);
+  --bs-btn-active-bg: var(--atlas-ink);
+  --bs-btn-active-border-color: var(--atlas-ink);
+}
+
+.btn-icon {
+  --bs-btn-padding-x: 0;
+  --bs-btn-padding-y: 0;
+  width: 2.6rem;
+  height: 2.6rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.btn-save {
+  --bs-btn-color: var(--atlas-ink);
+  --bs-btn-bg: var(--atlas-glass-light);
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-color: var(--atlas-terra);
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-bg: #fff;
+  --bs-btn-active-border-color: transparent;
+  -webkit-backdrop-filter: var(--atlas-blur);
+  backdrop-filter: var(--atlas-blur);
+}
+
+.btn-save[aria-pressed="true"] {
+  --bs-btn-color: var(--atlas-terra);
+  --bs-btn-hover-color: var(--atlas-terra);
+  --bs-btn-active-color: var(--atlas-terra);
+}
+
+.btn-save[aria-pressed="true"] svg {
+  fill: currentColor;
+}
+
+/* ---------- 4. Navbar + Offcanvas ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1045;
+  background-color: var(--atlas-glass-light);
+  border-bottom: 1px solid rgba(21, 25, 28, 0.08);
+  -webkit-backdrop-filter: var(--atlas-blur);
+  backdrop-filter: var(--atlas-blur);
+  transition: background-color 0.4s var(--atlas-ease), border-color 0.4s var(--atlas-ease),
+    backdrop-filter 0.4s var(--atlas-ease);
+}
+
+.has-hero .site-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+.has-hero .site-header:not(.is-scrolled) {
+  background-color: transparent;
+  border-bottom-color: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.navbar-atlas {
+  --bs-navbar-color: var(--atlas-ink);
+  --bs-navbar-hover-color: var(--atlas-ink);
+  --bs-navbar-active-color: var(--atlas-ink);
+  --bs-navbar-brand-color: var(--atlas-ink);
+  --bs-navbar-brand-hover-color: var(--atlas-ink);
+  --bs-navbar-nav-link-padding-x: 0.9rem;
+  --bs-navbar-toggler-focus-width: 0;
+  min-height: 4.5rem;
+}
+
+.navbar-atlas .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.brand-mark {
+  width: 1.9rem;
+  height: 1.9rem;
+  flex-shrink: 0;
+}
+
+.has-hero .site-header:not(.is-scrolled) .navbar-brand,
+.has-hero .site-header:not(.is-scrolled) .navbar-toggler {
+  color: #fff;
+}
+
+@media (min-width: 992px) {
+  .navbar-atlas .nav-link {
+    position: relative;
+    font-weight: 600;
+  }
+
+  .navbar-atlas .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0.9rem;
+    right: 0.9rem;
+    bottom: 0.2rem;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--atlas-terra);
+    transform: scaleX(0);
+    transition: transform 0.35s var(--atlas-ease);
+  }
+
+  .navbar-atlas .nav-link:hover::after,
+  .navbar-atlas .nav-link.active::after {
+    transform: scaleX(1);
+  }
+
+  .has-hero .site-header:not(.is-scrolled) .navbar-nav .nav-link {
+    color: #fff;
+  }
+
+  .has-hero .site-header:not(.is-scrolled) .navbar-atlas .btn-primary {
+    --bs-btn-color: var(--atlas-ink);
+    --bs-btn-bg: #fff;
+    --bs-btn-border-color: #fff;
+    --bs-btn-hover-color: var(--atlas-ink);
+    --bs-btn-hover-bg: var(--atlas-surface);
+    --bs-btn-hover-border-color: var(--atlas-surface);
+  }
+}
+
+@media (max-width: 991.98px) {
+  .offcanvas {
+    --bs-offcanvas-bg: rgba(255, 255, 255, 0.8);
+    --bs-offcanvas-transition: transform 0.45s var(--atlas-ease);
+    -webkit-backdrop-filter: var(--atlas-blur);
+    backdrop-filter: var(--atlas-blur);
+  }
+
+  .offcanvas.offcanvas-end {
+    border-left: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--atlas-radius) 0 0 var(--atlas-radius);
+  }
+
+  .offcanvas .nav-link {
+    padding: 0.85rem 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--atlas-ink);
+    border-bottom: 1px solid rgba(21, 25, 28, 0.08);
+  }
+
+  .offcanvas .nav-link.active {
+    color: var(--atlas-petrol);
+  }
+}
+
+/* ---------- 5. Portada (Carousel) ---------- */
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 40rem;
+  overflow: hidden;
+  background-color: var(--atlas-ink);
+  color: #fff;
+}
+
+.hero .carousel-inner,
+.hero .carousel-item {
+  height: 100%;
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero .carousel-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(21, 25, 28, 0.45) 0%, rgba(21, 25, 28, 0) 22%, rgba(21, 25, 28, 0) 45%, rgba(21, 25, 28, 0.75) 100%);
+}
+
+.hero-caption {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  padding-bottom: 4rem;
+}
+
+.hero-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.hero-kicker .num {
+  color: rgba(255, 255, 255, 0.7);
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-kicker .num::after {
+  content: "";
+  display: inline-block;
+  width: 1.5rem;
+  height: 2px;
+  margin-left: 0.75rem;
+  vertical-align: middle;
+  background-color: var(--atlas-terra);
+}
+
+.hero-name {
+  margin: 0 0 1.25rem -0.03em;
+  font-size: clamp(3.5rem, 10vw, 10rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+
+.hero-desc {
+  max-width: 26rem;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Animación del texto */
+.hero .carousel-item:is(.active, .carousel-item-next, .carousel-item-prev) :is(.hero-kicker, .hero-name, .hero-meta) {
+  animation: subir 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero .carousel-item:is(.active, .carousel-item-next, .carousel-item-prev) .hero-name {
+  animation-delay: 0.08s;
+}
+
+.hero .carousel-item:is(.active, .carousel-item-next, .carousel-item-prev) .hero-meta {
+  animation-delay: 0.16s;
+}
+
+.hero .carousel-item.active:is(.carousel-item-start, .carousel-item-end) :is(.hero-kicker, .hero-name, .hero-meta) {
+  animation: salir 0.3s ease both;
+}
+
+@keyframes subir {
+  from { opacity: 0; transform: translateY(1.5rem); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes salir {
+  to { opacity: 0; transform: translateY(-0.75rem); }
+}
+
+/* Miniaturas y flechas */
+.hero-ui {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.hero-ui .container {
+  position: relative;
+  height: 100%;
+}
+
+.hero-ui .container > * {
+  pointer-events: auto;
+}
+
+.hero .hero-thumbs {
+  position: absolute;
+  inset: 5.75rem auto auto calc(var(--bs-gutter-x) * 0.5);
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.35rem;
+  border-radius: 18px;
+}
+
+.hero .hero-thumbs [data-bs-target] {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  text-align: left;
+  color: #fff;
+  background: none;
+  border: 0;
+  border-radius: var(--atlas-radius-sm);
+  opacity: 0.7;
+  transition: opacity 0.35s var(--atlas-ease), background-color 0.35s var(--atlas-ease);
+}
+
+.hero .hero-thumbs [data-bs-target]:hover,
+.hero .hero-thumbs [data-bs-target].active {
+  opacity: 1;
+}
+
+.hero-thumbs img {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: border-color 0.35s var(--atlas-ease);
+}
+
+.hero .hero-thumbs .active img {
+  border-color: #fff;
+}
+
+.thumb-text {
+  display: none;
+}
+
+.hero-arrows {
+  position: absolute;
+  top: 5.75rem;
+  right: calc(var(--bs-gutter-x) * 0.5);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.hero .hero-thumbs,
+.hero-arrow {
+  background-color: var(--atlas-glass-dark);
+  border: 1px solid var(--atlas-glass-border);
+  -webkit-backdrop-filter: var(--atlas-blur);
+  backdrop-filter: var(--atlas-blur);
+}
+
+.hero-arrow {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--atlas-glass-dark);
+  --bs-btn-border-color: var(--atlas-glass-border);
+  --bs-btn-hover-color: var(--atlas-ink);
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-border-color: #fff;
+  --bs-btn-active-color: var(--atlas-ink);
+  --bs-btn-active-bg: #fff;
+}
+
+@media (min-width: 992px) {
+  .hero .hero-thumbs {
+    inset: auto calc(var(--bs-gutter-x) * 0.5) 4rem auto;
+    flex-direction: column;
+    gap: 0.15rem;
+    width: 15rem;
+    padding: 0.45rem;
+    border-radius: var(--atlas-radius);
+  }
+
+  .hero .hero-thumbs [data-bs-target] {
+    width: 100%;
+    padding: 0.4rem;
+  }
+
+  .hero .hero-thumbs [data-bs-target]:hover,
+  .hero .hero-thumbs [data-bs-target].active {
+    background-color: rgba(255, 255, 255, 0.16);
+  }
+
+  .hero .hero-thumbs .active img {
+    border-color: transparent;
+  }
+
+  .thumb-text {
+    display: block;
+    line-height: 1.15;
+  }
+
+  .thumb-text small {
+    display: block;
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.8;
+  }
+
+  .thumb-text strong {
+    font-weight: 700;
+  }
+
+  .hero-arrows {
+    top: auto;
+    bottom: 21.25rem;
+  }
+}
+
+/* ---------- 6. Chips ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-radius: var(--atlas-pill);
+  background-color: var(--atlas-surface);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--atlas-ink);
+  text-decoration: none;
+  transition: background-color 0.35s var(--atlas-ease), color 0.35s var(--atlas-ease),
+    box-shadow 0.35s var(--atlas-ease);
+}
+
+.chip:hover {
+  background-color: var(--atlas-line);
+}
+
+.chip.active {
+  color: #fff;
+  background-color: var(--atlas-ink);
+}
+
+.chip .count {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+/* ---------- 7. Mosaico de Cards ---------- */
+.tile {
+  height: 20rem;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--atlas-radius);
+  background-color: var(--atlas-ink);
+}
+
+.tile .card-img {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 1s var(--atlas-ease);
+}
+
+.tile:hover .card-img {
+  transform: scale(1.05);
+}
+
+.tile .card-img-overlay {
+  display: flex;
+  align-items: flex-end;
+  padding: 0.75rem;
+  border-radius: 0;
+  background: linear-gradient(180deg, rgba(21, 25, 28, 0) 50%, rgba(21, 25, 28, 0.45));
+}
+
+.tile-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.85rem 0.85rem 0.85rem 1.1rem;
+  border: 1px solid var(--atlas-glass-border);
+  border-radius: 18px;
+  background-color: var(--atlas-glass-dark);
+  -webkit-backdrop-filter: var(--atlas-blur);
+  backdrop-filter: var(--atlas-blur);
+}
+
+.tile-meta {
+  margin-bottom: 0.2rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.tile .card-title {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.tile-link {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #fff;
+  color: var(--atlas-ink);
+  transition: background-color 0.35s var(--atlas-ease), color 0.35s var(--atlas-ease),
+    transform 0.35s var(--atlas-ease);
+}
+
+.tile:hover .tile-link {
+  background-color: var(--atlas-terra);
+  color: #fff;
+  transform: translateX(2px);
+}
+
+.tile .stretched-link:focus-visible {
+  outline: 0;
+}
+
+.tile .stretched-link:focus-visible::after {
+  outline: 3px solid #fff;
+  outline-offset: -6px;
+  border-radius: var(--atlas-radius);
+}
+
+.tile .btn-save {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  z-index: 3;
+}
+
+.tile--tall {
+  height: 28rem;
+}
+
+@media (min-width: 992px) {
+  .tile {
+    height: 17.5rem;
+  }
+
+  .tile--tall {
+    height: 100%;
+    min-height: 36rem;
+  }
+
+  .tile--tall .card-title {
+    font-size: 2.4rem;
+  }
+}
+
+/* ---------- 8. Banda final (CTA) ---------- */
+.cta {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 30rem;
+  padding: clamp(0.75rem, 3vw, 2rem);
+  overflow: hidden;
+  border-radius: var(--atlas-radius);
+  color: #fff;
+}
+
+.cta-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(21, 25, 28, 0.35), rgba(21, 25, 28, 0) 70%);
+}
+
+.cta-body {
+  position: relative;
+  z-index: 1;
+  max-width: 34rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid var(--atlas-glass-border);
+  border-radius: var(--atlas-radius);
+  background-color: var(--atlas-glass-dark);
+  -webkit-backdrop-filter: var(--atlas-blur);
+  backdrop-filter: var(--atlas-blur);
+}
+
+.cta-title {
+  font-size: clamp(2.2rem, 1.4rem + 3vw, 3.75rem);
+  letter-spacing: -0.045em;
+}
+
+.cta .lead {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.cta .btn-light {
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--atlas-petrol);
+  --bs-btn-hover-border-color: var(--atlas-petrol);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--atlas-petrol-700);
+  --bs-btn-active-border-color: var(--atlas-petrol-700);
+}
+
+.cta .btn svg {
+  transition: transform 0.35s var(--atlas-ease);
+}
+
+.cta .btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* ---------- 9. Footer ---------- */
+.site-footer {
+  margin-top: clamp(4rem, 8vw, 6rem);
+  padding-top: clamp(3rem, 6vw, 4.5rem);
+  background-color: var(--atlas-ink);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.site-footer a {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: #fff;
+}
+
+.footer-title {
+  margin: 0;
+  font-size: clamp(1.9rem, 1.3rem + 2vw, 2.9rem);
+  color: #fff;
+}
+
+.newsletter .form-control {
+  min-width: 0;
+  padding-inline: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--atlas-pill);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.newsletter .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter .form-control:focus {
+  border-color: #fff;
+  box-shadow: none;
+}
+
+.site-footer .footer-brand {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.footer-bottom {
+  margin-top: 3rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ---------- 10. Toast ---------- */
+.toast {
+  --bs-toast-bg: rgba(24, 28, 32, 0.72);
+  --bs-toast-color: #fff;
+  --bs-toast-border-color: rgba(255, 255, 255, 0.14);
+  --bs-toast-border-radius: 18px;
+  --bs-toast-max-width: 380px;
+  --bs-toast-box-shadow: var(--atlas-shadow);
+  -webkit-backdrop-filter: var(--atlas-blur);
+  backdrop-filter: var(--atlas-blur);
+}
+
+.toast .toast-body {
+  padding: 0.95rem 1.1rem;
+  font-weight: 500;
+}
+
+/* ---------- 11. Destinos: portada ---------- */
+.page-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  height: 62svh;
+  min-height: 30rem;
+  max-height: 40rem;
+  padding-bottom: 5rem;
+  overflow: hidden;
+  color: #fff;
+}
+
+.page-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(21, 25, 28, 0.45), rgba(21, 25, 28, 0) 30%, rgba(21, 25, 28, 0.75));
+}
+
+.page-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.page-title {
+  max-width: 18ch;
+  font-size: clamp(2.4rem, 1.4rem + 3.4vw, 4.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.page-hero .lead {
+  max-width: 34rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.page-hero .breadcrumb {
+  --bs-breadcrumb-divider-color: rgba(255, 255, 255, 0.6);
+  --bs-breadcrumb-item-active-color: #fff;
+  display: inline-flex;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--atlas-glass-border);
+  border-radius: var(--atlas-pill);
+  background-color: var(--atlas-glass-dark);
+  -webkit-backdrop-filter: var(--atlas-blur);
+  backdrop-filter: var(--atlas-blur);
+  font-size: 0.9rem;
+}
+
+.page-hero .breadcrumb a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+}
+
+.page-hero .breadcrumb a:hover {
+  color: #fff;
+}
+
+/* Barra de filtros */
+.filter-bar {
+  position: relative;
+  z-index: 5;
+  margin-top: -2.25rem;
+  padding: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--atlas-radius);
+  background-color: var(--atlas-glass-light);
+  box-shadow: var(--atlas-shadow);
+  -webkit-backdrop-filter: var(--atlas-blur);
+  backdrop-filter: var(--atlas-blur);
+}
+
+.filters {
+  display: flex;
+  gap: 0.15rem;
+  overflow-x: auto;
+  padding: 0.25rem;
+  border-radius: var(--atlas-pill);
+  background-color: rgba(118, 128, 135, 0.14);
+  scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filters .chip {
+  flex-shrink: 0;
+  background-color: transparent;
+}
+
+.filters .chip:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.filters .chip.active {
+  color: var(--atlas-ink);
+  background-color: #fff;
+  box-shadow: 0 3px 10px -2px rgba(21, 25, 28, 0.18);
+}
+
+.filter-count {
+  padding-inline: 0.5rem;
+}
+
+/* ---------- 12. Destinos: tarjetas ---------- */
+.card-destino {
+  --bs-card-bg: transparent;
+  --bs-card-border-width: 0;
+  cursor: pointer;
+}
+
+.card-destino:focus-visible {
+  outline: 0;
+}
+
+.card-destino:focus-visible .card-media {
+  outline: 3px solid var(--atlas-petrol);
+  outline-offset: 4px;
+}
+
+.card-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--atlas-radius);
+  transition: box-shadow 0.5s var(--atlas-ease), outline-color 0.3s var(--atlas-ease);
+}
+
+.card-destino:hover .card-media {
+  box-shadow: var(--atlas-shadow);
+}
+
+.card-media .card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 1s var(--atlas-ease);
+}
+
+.card-destino:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.seleccionada > .card-destino .card-media {
+  outline: 3px solid var(--atlas-terra);
+  outline-offset: 4px;
+}
+
+.card-media .badge {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: var(--atlas-pill);
+  background-color: var(--atlas-glass-light);
+  color: var(--atlas-ink);
+  font-weight: 600;
+  -webkit-backdrop-filter: var(--atlas-blur);
+  backdrop-filter: var(--atlas-blur);
+}
+
+.card-media .btn-save {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+}
+
+.card-destino .card-body {
+  padding: 1rem 0 0;
+}
+
+.card-destino .card-title {
+  margin-bottom: 0.4rem;
+  font-size: 1.5rem;
+}
+
+.card-season {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--atlas-line);
+  font-size: 0.9rem;
+  color: var(--atlas-muted);
+}
+
+.card-season strong {
+  color: var(--atlas-ink);
+}
+
+.card-suggest {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: 22rem;
+  padding: 2rem;
+  border-radius: var(--atlas-radius);
+  background: linear-gradient(160deg, #1b7d90, var(--atlas-petrol-700));
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.card-suggest h3 {
+  font-size: clamp(1.9rem, 1.5rem + 1.2vw, 2.4rem);
+  color: #fff;
+}
+
+/* ---------- 13. Accordion ---------- */
+.tips-img {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: var(--atlas-radius);
+}
+
+.accordion-atlas {
+  --bs-accordion-bg: var(--atlas-surface);
+  --bs-accordion-border-color: rgba(21, 25, 28, 0.07);
+  --bs-accordion-border-radius: var(--atlas-radius);
+  --bs-accordion-inner-border-radius: var(--atlas-radius);
+  --bs-accordion-btn-padding-x: 1.4rem;
+  --bs-accordion-btn-padding-y: 1.2rem;
+  --bs-accordion-body-padding-x: 1.4rem;
+  --bs-accordion-active-bg: transparent;
+  --bs-accordion-active-color: var(--atlas-petrol);
+  --bs-accordion-btn-focus-box-shadow: none;
+  --bs-accordion-transition: color 0.3s var(--atlas-ease), background-color 0.3s var(--atlas-ease);
+  overflow: hidden;
+  border-radius: var(--atlas-radius);
+}
+
+.accordion-atlas .accordion-item {
+  border-width: 0 0 1px;
+}
+
+.accordion-atlas .accordion-item:last-child {
+  border-bottom: 0;
+}
+
+.accordion-atlas .collapsing {
+  transition: height 0.4s var(--atlas-ease);
+}
+
+.accordion-atlas .accordion-button {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.accordion-atlas .accordion-button:hover {
+  color: var(--atlas-petrol);
+}
+
+.accordion-atlas .accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+
+.accordion-atlas .accordion-button:focus-visible {
+  outline: 3px solid var(--atlas-petrol);
+  outline-offset: -3px;
+}
+
+.accordion-atlas .accordion-body {
+  padding-top: 0;
+  padding-bottom: 1.5rem;
+}
+
+/* ---------- 14. Accesibilidad ---------- */
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+:focus-visible {
+  outline: 3px solid var(--atlas-petrol);
+  outline-offset: 3px;
+}
+
+.hero :focus-visible,
+.page-hero :focus-visible,
+.cta :focus-visible,
+.site-footer :focus-visible,
+.has-hero .site-header:not(.is-scrolled) :focus-visible {
+  outline-color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
